@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PK Service — Byggnation, Projektledning & Förvaltning</title>
-  <meta name="description" content="PK Service erbjuder byggnation, projektledning, fastighetsskötsel och teknisk förvaltning i Stockholm och Åre.">
+  <meta name="description" content="PK Service fixar byggnation, renovering, fastighetsskötsel och förvaltning i Stockholm och Åre. Stort som smått.">
   <meta name="google-site-verification" content="0X607T8AeDkSvmGXDkI_MkYQC8_IRvhGBB-Xvz-Opd4">
 
   <!-- Favicon -->
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pkservice.se/">
   <meta property="og:title" content="PK Service — Byggnation, Projektledning & Förvaltning">
-  <meta property="og:description" content="Helhetslösningar inom byggnation, projektledning, fastighetsskötsel och teknisk förvaltning i Stockholm och Åre.">
+  <meta property="og:description" content="PK Service fixar byggnation, renovering, fastighetsskötsel och förvaltning i Stockholm och Åre. Stort som smått.">
   <meta property="og:image" content="https://pkservice.se/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PK Service — Byggnation, Projektledning & Förvaltning">
-  <meta name="twitter:description" content="Helhetslösningar inom byggnation, projektledning, fastighetsskötsel och teknisk förvaltning i Stockholm och Åre.">
+  <meta name="twitter:description" content="PK Service fixar byggnation, renovering, fastighetsskötsel och förvaltning i Stockholm och Åre. Stort som smått.">
   <meta name="twitter:image" content="https://pkservice.se/assets/og-image.png">
 
   <!-- Theme -->
@@ -65,22 +65,34 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(248, 245, 240, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-bottom: 1px solid transparent;
       z-index: 100;
       padding: 0.9rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(248, 245, 240, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-logo {
       height: 32px;
       width: auto;
       display: block;
+      opacity: 0;
+      transition: opacity 0.3s;
     }
+
+    nav.scrolled .nav-logo { opacity: 1; }
 
     nav a {
       color: var(--dark-gray);
@@ -93,7 +105,8 @@
     }
 
     nav a:hover { color: var(--orange); }
-    .nav-links { display: flex; gap: 1.75rem; }
+    .nav-links { display: flex; gap: 1.75rem; opacity: 0; transition: opacity 0.3s; }
+    nav.scrolled .nav-links { opacity: 1; }
 
     /* HERO */
     .hero {
@@ -103,6 +116,15 @@
       align-items: center;
       padding: 6rem 4rem 4rem;
       position: relative;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('/assets/johan-pk-service-2-1.avif') center 70%/cover no-repeat;
+      opacity: 0.35;
     }
 
     .hero-content {
@@ -110,12 +132,13 @@
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-logo {
       width: min(280px, 55vw);
       pointer-events: none;
-      opacity: 0.95;
     }
 
     .hero-logo img { width: 100%; height: auto; filter: invert(1); }
@@ -688,6 +711,31 @@
     footer a { color: var(--mid-gray); text-decoration: none; }
     footer a:hover { color: var(--orange); }
 
+    /* IMAGE BREAKS */
+    .image-break {
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+    }
+
+    .image-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-break-short { height: 240px; }
+
+    /* AREA IMAGES */
+    .area-card-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
     /* MOBILE */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -699,6 +747,8 @@
       .agreements-grid { grid-template-columns: 1fr; }
       .quality-grid { grid-template-columns: 1fr 1fr; }
       .emergency-section { flex-direction: column; }
+      .image-break { height: 220px; }
+      .image-break-short { height: 160px; }
       section { padding: 3rem 1.5rem; }
       .process-section { padding: 3rem 1.5rem; }
       .cta-banner { padding: 3rem 1.5rem; }
@@ -721,13 +771,14 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <div class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-content">
       <div class="hero-logo">
         <img src="/assets/pk-brand-logo.svg" alt="Pelto & Kraiman Allservice">
       </div>
-      <h1>Byggnation, projektledning<br>& <span>forvaltning.</span></h1>
-      <p class="hero-desc">Helhetslösningar inom byggnation, projektledning, fastighetsskötsel och teknisk förvaltning i Stockholm och Åre.</p>
+      <h1>Vi bygger, fixar<br>& <span>förvaltar.</span></h1>
+      <p class="hero-desc">Två grabbar som gör det mesta — byggnation, renovering, fastighetsskötsel och förvaltning i Stockholm och Åre. Stort som smått.</p>
       <div class="hero-buttons">
         <a href="tel:+46739542966" class="btn">Ring oss</a>
         <a href="#offert" class="btn btn-outline">Begar offert</a>
@@ -737,65 +788,66 @@
         Stockholm & Åre
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- TJÄNSTER -->
   <section id="tjanster">
     <p class="section-label">Tjanster</p>
-    <h2 class="section-title">Vara tjanster</h2>
-    <p class="section-desc">Helhetslösningar från byggnation till löpande förvaltning.</p>
+    <h2 class="section-title">Det här gör vi</h2>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M9 20v-6h6v6"></path></svg></div>
         <h3>Byggnation</h3>
-        <p>Nybyggnation, ombyggnation och renoveringar. Vi tar projektet från ritning till färdigt resultat.</p>
+        <p>Renoveringar, ombyggnationer och nybyggen. Vi tar det från idé till färdigt resultat.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5h6M9 14l2 2 4-4"></path></svg></div>
         <h3>Projektledning</h3>
-        <p>Professionell projektledning som håller budget, tidplan och kvalitet genom hela processen.</p>
+        <p>Vi håller koll på budget, tidsplan och alla delar så att du slipper. Från start till mål.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
         <h3>Fastighetsskötsel</h3>
-        <p>Löpande skötsel och underhåll av fastigheter. Vi ser till att allt fungerar och ser bra ut.</p>
+        <p>Löpande underhåll och skötsel. Vi ser till att allt funkar och ser bra ut, året runt.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
-        <h3>Teknisk forvaltning</h3>
-        <p>Teknisk drift och förvaltning av fastighetssystem. Planerat underhåll och felavhjälpning.</p>
+        <h3>Teknisk förvaltning</h3>
+        <p>Drift av fastighetssystem, planerat underhåll och snabb felavhjälpning när det behövs.</p>
       </div>
     </div>
   </section>
 
-  <hr class="divider">
+  <!-- IMAGE BREAK -->
+  <div class="image-break">
+    <img src="https://images.unsplash.com/photo-1585128903994-9788298932a4?w=1600&q=80" alt="Verktyg och material" loading="lazy">
+  </div>
 
   <!-- PROCESS -->
   <div class="process-section" id="process">
     <div class="process-inner">
       <p class="section-label">Process</p>
-      <h2 class="section-title">Sa har jobbar vi</h2>
-      <p class="section-desc">Från första kontakt till färdigt projekt — transparent och strukturerat.</p>
+      <h2 class="section-title">Så funkar det</h2>
       <div class="process-steps">
         <div class="process-step">
           <div class="step-number">01</div>
-          <h3>Kontakt & besök</h3>
-          <p>Vi kommer ut, tittar på platsen och lyssnar på dina behov. Kostnadsfritt.</p>
+          <h3>Du hör av dig</h3>
+          <p>Ring eller maila. Vi kommer förbi och kollar läget — helt gratis såklart.</p>
         </div>
         <div class="process-step">
           <div class="step-number">02</div>
-          <h3>Offert & planering</h3>
-          <p>Du får en tydlig offert med fast pris, tidplan och materialspecifikation.</p>
+          <h3>Vi ger en offert</h3>
+          <p>Fast pris, tydlig tidsplan. Inga luddiga uppskattningar.</p>
         </div>
         <div class="process-step">
           <div class="step-number">03</div>
-          <h3>Genomförande</h3>
-          <p>Vi kör igång med eget team. Du får löpande uppdateringar genom hela projektet.</p>
+          <h3>Vi kör igång</h3>
+          <p>Vi drar igång jobbet och håller dig uppdaterad längs vägen.</p>
         </div>
         <div class="process-step">
           <div class="step-number">04</div>
-          <h3>Slutbesiktning</h3>
-          <p>Projektet godkänns tillsammans. Vi står kvar för garanti och uppföljning.</p>
+          <h3>Klart!</h3>
+          <p>Vi kollar av allt ihop. Sen står vi kvar om det skulle vara nåt.</p>
         </div>
       </div>
     </div>
@@ -804,8 +856,7 @@
   <!-- DETALJER -->
   <section id="detaljer">
     <p class="section-label">Detaljer</p>
-    <h2 class="section-title">Vad vi gör — i detalj</h2>
-    <p class="section-desc">Några exempel på vad vi hanterar inom varje område.</p>
+    <h2 class="section-title">Lite mer specifikt</h2>
     <div class="detail-grid">
       <div class="detail-card">
         <h3>Byggnation & renovering</h3>
@@ -855,23 +906,22 @@
   <!-- VARFÖR OSS -->
   <section>
     <p class="section-label">Fördelar</p>
-    <h2 class="section-title">Varför PK Service?</h2>
-    <p class="section-desc">Det som skiljer oss från mängden.</p>
+    <h2 class="section-title">Varför vi?</h2>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-marker"></div>
-        <h3>En kontakt — allt fixat</h3>
-        <p>Du slipper koordinera flera firmor. Vi tar helhetsansvar från start till mål.</p>
+        <h3>Ring en — allt fixat</h3>
+        <p>Slipp jaga olika firmor. Du ringer oss och vi löser resten.</p>
       </div>
       <div class="why-card">
         <div class="why-marker"></div>
-        <h3>Snabb responstid</h3>
-        <p>Vi svarar inom 24 timmar och kan ofta vara på plats samma vecka.</p>
+        <h3>Vi svarar snabbt</h3>
+        <p>Vi återkommer inom 24 timmar och kan oftast vara på plats samma vecka.</p>
       </div>
       <div class="why-card">
         <div class="why-marker"></div>
-        <h3>Fasta priser</h3>
-        <p>Inga överraskningar. Du vet vad det kostar innan vi börjar.</p>
+        <h3>Du vet vad det kostar</h3>
+        <p>Fast pris — inga överraskningar på fakturan.</p>
       </div>
     </div>
   </section>
@@ -881,12 +931,12 @@
   <!-- OMRÅDEN -->
   <section id="omraden">
     <p class="section-label">Omraden</p>
-    <h2 class="section-title">Var vi jobbar</h2>
-    <p class="section-desc">Två regioner, samma kvalitet.</p>
+    <h2 class="section-title">Var vi finns</h2>
     <div class="areas-grid">
       <div class="area-card">
+        <img class="area-card-img" src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&q=80" alt="Stockholm" loading="lazy">
         <h3>Stockholm</h3>
-        <p class="area-desc">Huvudkontor. Vi täcker hela Storstockholm — från innerstad till söder och norrort.</p>
+        <p class="area-desc">Vår hemmaplan. Vi täcker hela Storstockholm — innerstan, söderort, norrort, you name it.</p>
         <div class="area-tags">
           <span class="area-tag">Söderort</span>
           <span class="area-tag">Haninge</span>
@@ -897,8 +947,9 @@
         </div>
       </div>
       <div class="area-card">
+        <img class="area-card-img" src="https://images.unsplash.com/photo-1548784299-01625cdfbc2b?w=800&q=80" alt="Åre fjällen" loading="lazy">
         <h3>Åre</h3>
-        <p class="area-desc">Fjällregionen. Byggprojekt, fastighetsskötsel och förvaltning i Åre med omnejd.</p>
+        <p class="area-desc">Vi jobbar mycket i fjällen också — byggen, skötsel och förvaltning i hela Åre-området.</p>
         <div class="area-tags">
           <span class="area-tag">Åre by</span>
           <span class="area-tag">Duved</span>
@@ -913,8 +964,8 @@
   <!-- CTA -->
   <div class="cta-banner" id="offert">
     <div class="cta-inner">
-      <h2>Behöver du hjälp med din fastighet?</h2>
-      <p>Beskriv ditt projekt så återkommer vi med en kostnadsfri offert — oftast inom 24 timmar.</p>
+      <h2>Har du nåt som behöver fixas?</h2>
+      <p>Hör av dig så snackar vi igenom det. Offerten är alltid gratis — och vi brukar svara samma dag.</p>
       <div class="cta-buttons">
         <a href="tel:+46739542966" class="btn">073-954 29 66</a>
         <a href="mailto:info@pkservice.se" class="btn btn-outline">info@pkservice.se</a>
@@ -926,7 +977,6 @@
   <section>
     <p class="section-label">Avtal</p>
     <h2 class="section-title">Serviceavtal</h2>
-    <p class="section-desc">Löpande förvaltning utan krångel. Välj den nivå som passar.</p>
     <div class="agreements-grid">
       <div class="agreement-card">
         <h3>Bas</h3>
@@ -965,21 +1015,25 @@
 
   <hr class="divider">
 
+  <!-- IMAGE BREAK -->
+  <div class="image-break image-break-short">
+    <img src="https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=1600&q=80" alt="Byggnadsdetalj" loading="lazy">
+  </div>
+
   <!-- OM OSS -->
   <section id="om-oss">
     <p class="section-label">Om oss</p>
-    <h2 class="section-title">Om PK Service</h2>
-    <p class="section-desc">Kvalitet och pålitlighet i varje projekt.</p>
+    <h2 class="section-title">Vilka är vi?</h2>
     <div class="about-content">
       <div class="about-text">
-        <p>PK Service — Pelto och Kraimans Service AB — erbjuder helhetslösningar inom byggnation och fastighetsförvaltning. Vi arbetar i Stockholm och Åre med allt från nybyggnation och projektledning till löpande fastighetsskötsel och teknisk förvaltning.</p>
-        <p>Vi tror på långsiktiga relationer och levererar alltid med kvalitet, oavsett projektets storlek. Vårt mål är att vara den partner du kan lita på — från första besök till slutbesiktning och därutöver.</p>
+        <p>PK Service startades av oss — Pelto och Kraiman — för att vi gillar att bygga och fixa saker. Vi jobbar i Stockholm och Åre med allt från renoveringar och nybyggen till löpande skötsel och förvaltning av fastigheter.</p>
+        <p>Vi tar oss an det mesta, stort som smått. Oavsett om det handlar om att renovera ett badrum eller sköta en hel fastighet så lägger vi samma energi i jobbet. Ring oss så löser vi det.</p>
       </div>
       <div class="about-stats">
-        <div class="stat"><div class="stat-number">Stockholm</div><div class="stat-label">Huvudkontor</div></div>
-        <div class="stat"><div class="stat-number">Åre</div><div class="stat-label">Fjällregionen</div></div>
+        <div class="stat"><div class="stat-number">Stockholm</div><div class="stat-label">Hemmaplan</div></div>
+        <div class="stat"><div class="stat-number">Åre</div><div class="stat-label">Fjällen</div></div>
         <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Engagemang</div></div>
-        <div class="stat"><div class="stat-number">Kvalitet</div><div class="stat-label">I varje projekt</div></div>
+        <div class="stat"><div class="stat-number">Alltid</div><div class="stat-label">Fasta priser</div></div>
       </div>
     </div>
   </section>
@@ -989,8 +1043,7 @@
   <!-- KVALITET -->
   <section>
     <p class="section-label">Garantier</p>
-    <h2 class="section-title">Kvalitet du kan lita på</h2>
-    <p class="section-desc">Vi går i god för vårt arbete.</p>
+    <h2 class="section-title">Vi gör det ordentligt</h2>
     <div class="quality-grid">
       <div class="quality-item"><div class="quality-number">F-skatt</div><div class="quality-label">Registrerat</div></div>
       <div class="quality-item"><div class="quality-number">Försäkrat</div><div class="quality-label">Ansvarsförsäkring</div></div>
@@ -1004,14 +1057,13 @@
   <!-- FAQ -->
   <section>
     <p class="section-label">FAQ</p>
-    <h2 class="section-title">Vanliga fragor</h2>
-    <p class="section-desc">Svar på det vi får höra oftast.</p>
+    <h2 class="section-title">Vanliga frågor</h2>
     <div class="faq-list">
-      <div class="faq-item"><div class="faq-question">Hur snabbt kan ni komma igång?</div><div class="faq-answer">Vi kan oftast göra ett första besök inom en vecka. För enklare jobb kan vi ibland starta samma vecka som offerten godkänns.</div></div>
-      <div class="faq-item"><div class="faq-question">Jobbar ni med fasta priser?</div><div class="faq-answer">Ja, vi ger alltid en fast offert så du vet exakt vad det kostar. Inga dolda avgifter eller överraskningar i slutfakturan.</div></div>
-      <div class="faq-item"><div class="faq-question">Kan jag använda ROT-avdrag?</div><div class="faq-answer">Absolut. Vi är godkända för ROT och hanterar hela avdraget åt dig — du betalar bara din del direkt.</div></div>
-      <div class="faq-item"><div class="faq-question">Tar ni små jobb också?</div><div class="faq-answer">Ja. Vi gör allt från att byta ett lås till att bygga om hela fastigheten. Inget projekt är för litet.</div></div>
-      <div class="faq-item"><div class="faq-question">Hur fungerar era serviceavtal?</div><div class="faq-answer">Vi skräddarsyr ett avtal efter din fastighets behov. Du får en fast månadskostnad och vi sköter resten — rondering, skötsel, felavhjälpning.</div></div>
+      <div class="faq-item"><div class="faq-question">Hur snabbt kan ni komma igång?</div><div class="faq-answer">Vi brukar kunna komma förbi inom en vecka. Enklare jobb kan vi ofta köra igång samma vecka som du säger ja till offerten.</div></div>
+      <div class="faq-item"><div class="faq-question">Jobbar ni med fasta priser?</div><div class="faq-answer">Alltid. Du vet exakt vad det kostar innan vi börjar — inga konstigheter på fakturan.</div></div>
+      <div class="faq-item"><div class="faq-question">Kan jag använda ROT-avdrag?</div><div class="faq-answer">Absolut! Vi fixar hela ROT-hanteringen — du betalar bara din del.</div></div>
+      <div class="faq-item"><div class="faq-question">Tar ni små jobb också?</div><div class="faq-answer">Ja, vi gör allt från att byta ett lås till att bygga om hela kåken. Inget jobb är för litet.</div></div>
+      <div class="faq-item"><div class="faq-question">Hur funkar era serviceavtal?</div><div class="faq-answer">Vi snackar igenom vad din fastighet behöver och sätter ihop ett avtal. Fast månadspris, sen sköter vi allt — rondering, skötsel, felavhjälpning.</div></div>
     </div>
   </section>
 
@@ -1022,8 +1074,8 @@
     <div class="emergency-section">
       <div class="emergency-dot"></div>
       <div class="emergency-text">
-        <h3>Akut fastighetsservice?</h3>
-        <p>Vattenläcka, elfel eller inbrott? Ring oss direkt så prioriterar vi ditt ärende.</p>
+        <h3>Nåt akut?</h3>
+        <p>Vattenläcka, elfel eller inbrott? Ring oss direkt så fixar vi det.</p>
         <a href="tel:+46739542966" class="btn">Ring 073-954 29 66</a>
       </div>
     </div>
@@ -1033,7 +1085,7 @@
   <section id="kontakt">
     <div class="contact-section">
       <p class="section-label" style="text-align:center;">Kontakt</p>
-      <h2 class="section-title" style="text-align:center;">Kontakta oss</h2>
+      <h2 class="section-title" style="text-align:center;">Hör av dig</h2>
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-item-label">Telefon</div>
@@ -1046,6 +1098,15 @@
       </div>
     </div>
   </section>
+
+  <script>
+    const nav = document.querySelector('nav');
+    const hero = document.querySelector('.hero');
+    const observer = new IntersectionObserver(([entry]) => {
+      nav.classList.toggle('scrolled', !entry.isIntersecting);
+    }, { threshold: 0.1 });
+    observer.observe(hero);
+  </script>
 
   <footer>
     <p>&copy; 2026 Pelto och Kraimans Service AB</p>
