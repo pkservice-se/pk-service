@@ -306,47 +306,6 @@
     }
 
     /* PROCESS */
-    .process-section {
-      background: var(--warm-gray);
-      max-width: 100%;
-      padding: 5rem 2rem;
-    }
-
-    .process-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-
-    .process-step { }
-
-    .step-number {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--orange);
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-
-    .process-step h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-      letter-spacing: -0.01em;
-    }
-
-    .process-step p {
-      color: var(--dark-gray);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
     /* DETAIL GRID */
     .detail-grid {
       display: grid;
@@ -741,7 +700,6 @@
       .nav-links { display: none; }
       .hero { padding: 5rem 1.5rem 3rem; }
       .about-content { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; }
       .services-grid, .detail-grid, .areas-grid { grid-template-columns: 1fr; }
       .why-grid, .clients-grid { grid-template-columns: 1fr; }
       .agreements-grid { grid-template-columns: 1fr; }
@@ -750,7 +708,6 @@
       .image-break { height: 220px; }
       .image-break-short { height: 160px; }
       section { padding: 3rem 1.5rem; }
-      .process-section { padding: 3rem 1.5rem; }
       .cta-banner { padding: 3rem 1.5rem; }
       .contact-info { flex-direction: column; align-items: center; }
       nav { padding: 0.75rem 1.25rem; }
@@ -796,16 +753,6 @@
     <h2 class="section-title">Det här gör vi</h2>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M9 20v-6h6v6"></path></svg></div>
-        <h3>Byggnation</h3>
-        <p>Renoveringar, ombyggnationer och nybyggen. Vi tar det från idé till färdigt resultat.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5h6M9 14l2 2 4-4"></path></svg></div>
-        <h3>Projektledning</h3>
-        <p>Vi håller koll på budget, tidsplan och alla delar så att du slipper. Från start till mål.</p>
-      </div>
-      <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
         <h3>Fastighetsskötsel</h3>
         <p>Löpande underhåll och skötsel. Vi ser till att allt funkar och ser bra ut, året runt.</p>
@@ -815,43 +762,18 @@
         <h3>Teknisk förvaltning</h3>
         <p>Drift av fastighetssystem, planerat underhåll och snabb felavhjälpning när det behövs.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- IMAGE BREAK -->
-  <div class="image-break">
-    <img src="https://images.unsplash.com/photo-1585128903994-9788298932a4?w=1600&q=80" alt="Verktyg och material" loading="lazy">
-  </div>
-
-  <!-- PROCESS -->
-  <div class="process-section" id="process">
-    <div class="process-inner">
-      <p class="section-label">Process</p>
-      <h2 class="section-title">Så funkar det</h2>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="step-number">01</div>
-          <h3>Du hör av dig</h3>
-          <p>Ring eller maila. Vi kommer förbi och kollar läget — helt gratis såklart.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">02</div>
-          <h3>Vi ger en offert</h3>
-          <p>Fast pris, tydlig tidsplan. Inga luddiga uppskattningar.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">03</div>
-          <h3>Vi kör igång</h3>
-          <p>Vi drar igång jobbet och håller dig uppdaterad längs vägen.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">04</div>
-          <h3>Klart!</h3>
-          <p>Vi kollar av allt ihop. Sen står vi kvar om det skulle vara nåt.</p>
-        </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5h6M9 14l2 2 4-4"></path></svg></div>
+        <h3>Projektledning</h3>
+        <p>Vi håller koll på budget, tidsplan och alla delar så att du slipper. Från start till mål.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M9 20v-6h6v6"></path></svg></div>
+        <h3>Byggnation</h3>
+        <p>Renoveringar, ombyggnationer och nybyggen. Vi tar det från idé till färdigt resultat.</p>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- DETALJER -->
   <section id="detaljer">
@@ -859,13 +781,23 @@
     <h2 class="section-title">Lite mer specifikt</h2>
     <div class="detail-grid">
       <div class="detail-card">
-        <h3>Byggnation & renovering</h3>
+        <h3>Fastighetsskötsel</h3>
         <ul>
-          <li>Totalentreprenader</li>
-          <li>Badrumsrenoveringar</li>
-          <li>Köksrenoveringar</li>
-          <li>Tillbyggnader & attefallshus</li>
-          <li>Fasadarbeten</li>
+          <li>Mark- och trädgårdsskötsel</li>
+          <li>Snöröjning & sandning</li>
+          <li>Trapphus- och gemensam ytskötsel</li>
+          <li>Avfallshantering</li>
+          <li>Rondering och tillsyn</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h3>Teknisk förvaltning</h3>
+        <ul>
+          <li>VVS-drift och underhåll</li>
+          <li>El- och belysningssystem</li>
+          <li>Ventilation & klimat</li>
+          <li>Lås & säkerhetssystem</li>
+          <li>Energioptimering</li>
         </ul>
       </div>
       <div class="detail-card">
@@ -879,23 +811,13 @@
         </ul>
       </div>
       <div class="detail-card">
-        <h3>Fastighetsskötsel</h3>
+        <h3>Byggnation & renovering</h3>
         <ul>
-          <li>Mark- och trädgårdsskötsel</li>
-          <li>Snöröjning & sandning</li>
-          <li>Trapphus- och gemensam ytskötsel</li>
-          <li>Avfallshantering</li>
-          <li>Rondering och tillsyn</li>
-        </ul>
-      </div>
-      <div class="detail-card">
-        <h3>Teknisk forvaltning</h3>
-        <ul>
-          <li>VVS-drift och underhåll</li>
-          <li>El- och belysningssystem</li>
-          <li>Ventilation & klimat</li>
-          <li>Lås & säkerhetssystem</li>
-          <li>Energioptimering</li>
+          <li>Totalentreprenader</li>
+          <li>Badrumsrenoveringar</li>
+          <li>Köksrenoveringar</li>
+          <li>Tillbyggnader & attefallshus</li>
+          <li>Fasadarbeten</li>
         </ul>
       </div>
     </div>
