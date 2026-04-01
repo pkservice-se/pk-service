@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PK Service — Material</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/pk-brand-logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #111009;
+      --white: #F8F5F0;
+      --warm-gray: #EDEAE4;
+      --mid-gray: #A8A198;
+      --dark-gray: #3A3428;
+      --orange: #D95C14;
+      --orange-lt: #FBF0E8;
+      --border: #DDD8CF;
+      --sans: 'DM Sans', sans-serif;
+      --serif: 'DM Serif Display', serif;
+    }
+
+    html { font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: var(--black);
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .header-logo {
+      width: min(260px, 60vw);
+      filter: invert(1);
+      margin-bottom: 24px;
+    }
+    .header h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 5vw, 44px);
+      color: var(--white);
+      font-weight: 400;
+    }
+    .header p {
+      color: var(--mid-gray);
+      font-size: 14px;
+      margin-top: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3.5vw, 32px);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .section-desc {
+      color: var(--dark-gray);
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .logo-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .logo-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .logo-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 32px;
+      min-height: 200px;
+    }
+    .logo-preview.light {
+      background: var(--white);
+    }
+    .logo-preview.dark {
+      background: var(--black);
+    }
+    .logo-preview.orange {
+      background: var(--orange);
+    }
+    .logo-preview img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+    }
+    .logo-preview.dark img,
+    .logo-preview.orange img {
+      filter: invert(1);
+    }
+
+    .logo-info {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-info .label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .logo-info .format {
+      font-size: 12px;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-download:hover {
+      background: var(--dark-gray);
+    }
+    .btn-download svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .colors-section {
+      margin-bottom: 64px;
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .color-swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .color-swatch .swatch {
+      height: 80px;
+    }
+    .color-swatch .info {
+      padding: 12px 16px;
+      background: white;
+    }
+    .color-swatch .info .name {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    .color-swatch .info .hex {
+      font-size: 12px;
+      color: var(--mid-gray);
+      font-family: monospace;
+    }
+
+    .fonts-section {
+      margin-bottom: 64px;
+    }
+    .font-example {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    .font-example .sample {
+      font-size: clamp(24px, 4vw, 36px);
+      margin-bottom: 8px;
+    }
+    .font-example .meta {
+      font-size: 13px;
+      color: var(--mid-gray);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--dark-gray);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 48px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--black); }
+
+    @media (max-width: 600px) {
+      .header { padding: 36px 20px; }
+      .content { padding: 40px 20px 64px; }
+      .logo-grid { grid-template-columns: 1fr; }
+      .logo-info { flex-direction: column; gap: 12px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="/assets/pk-brand-logo.svg" alt="PK Service" class="header-logo">
+    <h1>Material</h1>
+    <p>Logotyp, färger och typsnitt för tryck och digitalt</p>
+  </div>
+
+  <div class="content">
+    <a href="/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tillbaka till pkservice.se
+    </a>
+
+    <h2 class="section-title">Logotyp</h2>
+    <p class="section-desc">Vektoriserad logotyp i SVG-format. Skalbar utan kvalitetsförlust — perfekt för tryck på kläder, skyltar och fordon.</p>
+
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="logo-preview light">
+          <img src="/assets/pk-brand-logo.svg" alt="PK Service logotyp — svart">
+        </div>
+        <div class="logo-info">
+          <div>
+            <div class="label">Svart på ljus bakgrund</div>
+            <div class="format">SVG — vektor</div>
+          </div>
+          <a href="/assets/pk-brand-logo.svg" download="pk-service-logo.svg" class="btn-download">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Ladda ner
+          </a>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-preview dark">
+          <img src="/assets/pk-brand-logo.svg" alt="PK Service logotyp — vit">
+        </div>
+        <div class="logo-info">
+          <div>
+            <div class="label">Vit på mörk bakgrund</div>
+            <div class="format">SVG — vektor</div>
+          </div>
+          <a href="/assets/pk-brand-logo.svg" download="pk-service-logo-vit.svg" class="btn-download">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Ladda ner
+          </a>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-preview orange">
+          <img src="/assets/pk-brand-logo.svg" alt="PK Service logotyp — på orange">
+        </div>
+        <div class="logo-info">
+          <div>
+            <div class="label">Vit på orange bakgrund</div>
+            <div class="format">SVG — vektor</div>
+          </div>
+          <a href="/assets/pk-brand-logo.svg" download="pk-service-logo.svg" class="btn-download">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Ladda ner
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="colors-section">
+      <h2 class="section-title">Färger</h2>
+      <p class="section-desc">Primära varumärkesfärger för tryck och digitala ytor.</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch" style="background: #111009;"></div>
+          <div class="info">
+            <div class="name">Svart</div>
+            <div class="hex">#111009</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #D95C14;"></div>
+          <div class="info">
+            <div class="name">Orange</div>
+            <div class="hex">#D95C14</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #F8F5F0;"></div>
+          <div class="info">
+            <div class="name">Vit</div>
+            <div class="hex">#F8F5F0</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch" style="background: #3A3428;"></div>
+          <div class="info">
+            <div class="name">Mörk grå</div>
+            <div class="hex">#3A3428</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fonts-section">
+      <h2 class="section-title">Typsnitt</h2>
+      <p class="section-desc">Två typsnitt används genomgående i varumärket.</p>
+      <div class="font-example">
+        <div class="sample" style="font-family: var(--serif);">Pelto & Kraiman Service</div>
+        <div class="meta">DM Serif Display — Rubriker och logotyp</div>
+      </div>
+      <div class="font-example">
+        <div class="sample" style="font-family: var(--sans); font-weight: 400;">Byggnation, projektledning & förvaltning</div>
+        <div class="meta">DM Sans — Brödtext och UI</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
