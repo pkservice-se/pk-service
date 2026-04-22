@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PK Service — Logo Test</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/assets/pk-brand-logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #111009;
+      --white: #F8F5F0;
+      --warm-gray: #EDEAE4;
+      --mid-gray: #A8A198;
+      --dark-gray: #3A3428;
+      --orange: #D95C14;
+      --border: #DDD8CF;
+      --sans: 'DM Sans', sans-serif;
+      --serif: 'DM Serif Display', serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .wrap { max-width: 1100px; margin: 0 auto; }
+
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    h1 em { color: var(--orange); font-style: italic; }
+
+    .lede {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--dark-gray);
+      font-size: 1.05rem;
+    }
+
+    .current {
+      background: var(--warm-gray);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .current img {
+      max-width: 380px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 1.25rem;
+    }
+
+    .current .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      font-weight: 500;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(17, 16, 9, 0.08);
+    }
+
+    .card-img {
+      background: var(--white);
+      aspect-ratio: 3 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-img.square { aspect-ratio: 1 / 1; }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body { padding: 1.5rem 1.5rem 1.75rem; }
+
+    .card-num {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--orange);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      color: var(--dark-gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--mid-gray);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 2rem 1rem 4rem; }
+      .grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .current { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="header">
+      <div class="eyebrow">Internt — Logo Test</div>
+      <h1>Fyra <em>varianter</em> att fundera på</h1>
+      <p class="lede">AI-genererade förslag baserade på nuvarande brandprofil. Inget är beslutat — välj en favorit eller blanda idéer från flera.</p>
+    </header>
+
+    <section class="current">
+      <img src="/assets/pk-service-logo.svg" alt="Nuvarande logo">
+      <div class="label">Nuvarande logo</div>
+    </section>
+
+    <section class="grid">
+
+      <article class="card">
+        <div class="card-img"><img src="variant-1-minimal.png" alt="Variant 1"></div>
+        <div class="card-body">
+          <div class="card-num">Variant 01</div>
+          <div class="card-title">Minimal Geometric</div>
+          <p class="card-desc">Ren version av nuvarande PK-monogram med modernare wordmark. Restrained, grid-aligned, marinblå.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img square"><img src="variant-2-emblem.png" alt="Variant 2"></div>
+        <div class="card-body">
+          <div class="card-num">Variant 02</div>
+          <div class="card-title">Premium Heritage</div>
+          <p class="card-desc">Klassisk emblem-stil — en mässingsskylt-känsla. Bra för fastigheter, signatur och brevpapper.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img"><img src="variant-3-bold.png" alt="Variant 3"></div>
+        <div class="card-body">
+          <div class="card-num">Variant 03</div>
+          <div class="card-title">Bold Modern</div>
+          <p class="card-desc">Industriell, självsäker. Funkar lika bra på en bilflakssida som ett visitkort. Orange + svart.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img"><img src="variant-4-architectural.png" alt="Variant 4"></div>
+        <div class="card-body">
+          <div class="card-num">Variant 04</div>
+          <div class="card-title">Architectural</div>
+          <p class="card-desc">Linjär hus-ikon kombinerad med wordmark. Sofistikerat, fastighets-känsla, orange accentruta.</p>
+        </div>
+      </article>
+
+    </section>
+
+    <footer class="footer">
+      Genererad <span id="ts"></span> · Nano Banana (Gemini 2.5 Flash Image)
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById('ts').textContent = new Date().toLocaleDateString('sv-SE');
+  </script>
+</body>
+</html>
