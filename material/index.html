@@ -126,6 +126,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
     .logo-info .label {
       font-size: 14px;
@@ -138,11 +140,16 @@
       letter-spacing: 0.05em;
     }
 
+    .download-group {
+      display: flex;
+      gap: 8px;
+    }
+
     .btn-download {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 10px 16px;
       background: var(--black);
       color: var(--white);
       border: none;
@@ -157,9 +164,16 @@
     .btn-download:hover {
       background: var(--dark-gray);
     }
+    .btn-download.secondary {
+      background: var(--warm-gray);
+      color: var(--black);
+    }
+    .btn-download.secondary:hover {
+      background: var(--border);
+    }
     .btn-download svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
     }
 
     .colors-section {
@@ -246,7 +260,7 @@
     </a>
 
     <h2 class="section-title">Logotyp</h2>
-    <p class="section-desc">Vektoriserad logotyp i SVG-format. Skalbar utan kvalitetsförlust — perfekt för tryck på kläder, skyltar och fordon.</p>
+    <p class="section-desc">Vektoriserad logotyp i SVG- och PDF-format. Skalbar utan kvalitetsförlust — perfekt för tryck på kläder, skyltar och fordon. PDF passar tryckerier som inte hanterar SVG.</p>
 
     <div class="logo-grid">
       <div class="logo-card">
@@ -256,12 +270,18 @@
         <div class="logo-info">
           <div>
             <div class="label">Svart på ljus bakgrund</div>
-            <div class="format">SVG — vektor</div>
+            <div class="format">SVG &amp; PDF — vektor</div>
           </div>
-          <a href="/assets/pk-brand-logo.svg" download="pk-service-logo.svg" class="btn-download">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Ladda ner
-          </a>
+          <div class="download-group">
+            <a href="/assets/pk-brand-logo.svg" download="pk-service-logo-svart.svg" class="btn-download secondary">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              SVG
+            </a>
+            <a href="/material/pk-service-logo-svart.pdf" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PDF
+            </a>
+          </div>
         </div>
       </div>
 
@@ -272,12 +292,18 @@
         <div class="logo-info">
           <div>
             <div class="label">Vit på mörk bakgrund</div>
-            <div class="format">SVG — vektor</div>
+            <div class="format">SVG &amp; PDF — vektor</div>
           </div>
-          <a href="/assets/pk-brand-logo.svg" download="pk-service-logo-vit.svg" class="btn-download">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Ladda ner
-          </a>
+          <div class="download-group">
+            <a href="/assets/pk-brand-logo.svg" download="pk-service-logo-vit.svg" class="btn-download secondary">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              SVG
+            </a>
+            <a href="/material/pk-service-logo-vit.pdf" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PDF
+            </a>
+          </div>
         </div>
       </div>
 
@@ -288,12 +314,18 @@
         <div class="logo-info">
           <div>
             <div class="label">Vit på orange bakgrund</div>
-            <div class="format">SVG — vektor</div>
+            <div class="format">SVG &amp; PDF — vektor</div>
           </div>
-          <a href="/assets/pk-brand-logo.svg" download="pk-service-logo.svg" class="btn-download">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Ladda ner
-          </a>
+          <div class="download-group">
+            <a href="/assets/pk-brand-logo.svg" download="pk-service-logo-orange.svg" class="btn-download secondary">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              SVG
+            </a>
+            <a href="/material/pk-service-logo-orange.pdf" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PDF
+            </a>
+          </div>
         </div>
       </div>
     </div>
