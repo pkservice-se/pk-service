@@ -75,7 +75,11 @@
 
 </g>
 </g>
-</defs>
+<mask id="pk-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="375" height="375">
+<rect x="0" y="0" width="375" height="375" fill="#fff"/>
+<rect x="37.5" y="156.773" width="114.04" height="34.879" fill="#000"/>
+</mask>
+</defs><g mask="url(#pk-cut)">
 
 
 <use xlink:href="#source-5" transform="matrix(1, 0, 0, 1, 144, 100)"/>
@@ -183,4 +187,5 @@
 <g clip-path="url(#clip-1)">
 <use xlink:href="#source-8" transform="matrix(1, 0, 0, 1, 37, 156)"/>
 </g>
-</svg>
+
+</g></svg>
